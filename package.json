@@ -1,0 +1,43 @@
+{
+  "name": "viper-log",
+  "version": "1.0.1",
+  "description": "good server log for nodejs base on log4js",
+  "keywords": [
+    "node log",
+    "nodejs log",
+    "log4js"
+  ],
+  "main": "index.js",
+  "files": [
+    "./index",
+    "/lib"
+  ],
+  "scripts": {
+    "lint": "eslint ./ --fix"
+  },
+  "author": "wrfighting",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.10.7",
+    "lodash": "^4.17.21",
+    "log4js": "^6.3.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.1",
+    "prettier": "^2.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "engines": {
+    "node": ">= 10.0.0"
+  }
+}
