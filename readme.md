@@ -1,6 +1,17 @@
 # viper-log
 
-viper-log是一个基于log4js的日志工具，能够打印出符合标准规范的日志
+viper-log是一个基于log4js的日志工具，能够打印出符合标准规范的日志，并且也可以自定义某些日志格式
+````
+[INFO][2021-11-03T00:16:27.952+08:00][default:at Object.<anonymous> (/Users/haha/project/viper-log/test.js:10:8)] _undef||traceid=||spanid=||pid=34187||localIp=||remote_addr=||msg=haha
+[INFO][2021-11-03T00:16:27.960+08:00][default:at Object.<anonymous> (/Users/haha/project/viper-log/test.js:11:8)] hahahaha||traceid=||spanid=||pid=34187||localIp=||remote_addr=||iu||agent_url=111||agent_method=post||agent_data={"name":"hehe"}||agent_res={"name":"xixixixi"}||agent_ttl=11ms||agent_code=200||msg=haha
+[WARN][2021-11-03T00:16:27.961+08:00][default:at Object.<anonymous> (/Users/haha/project/viper-log/test.js:24:8)] _undef||traceid=||spanid=||pid=34187||localIp=||remote_addr=||msg=haha
+[WARN][2021-11-03T00:16:27.962+08:00][default:at Object.<anonymous> (/Users/haha/project/viper-log/test.js:25:8)] _undef||traceid=||spanid=||pid=34187||localIp=||remote_addr=||iu||agent_url=111||agent_method=post||agent_data={"name":"hehe"}||agent_res={"name":"xixixixi"}||agent_ttl=11ms||agent_code=200||msg=haha
+[ERROR][2021-11-03T00:16:27.962+08:00][default:at Object.<anonymous> (/Users/haha/project/viper-log/test.js:38:8)] _undef||traceid=||spanid=||pid=34187||localIp=||remote_addr=||msg=haha
+[ERROR][2021-11-03T00:16:27.963+08:00][default:at Object.<anonymous> (/Users/haha/project/viper-log/test.js:39:8)] _undef||traceid=||spanid=||pid=34187||localIp=||remote_addr=||iu||agent_url=111||agent_method=post||agent_data={"name":"hehe"}||agent_res={"na...||agent_ttl=11ms||agent_code=200||msg=haha
+[FATAL][2021-11-03T00:16:27.964+08:00][default:at Object.<anonymous> (/Users/haha/project/viper-log/test.js:53:8)] _undef||traceid=||spanid=||pid=34187||localIp=||remote_addr=||msg=haha
+[FATAL][2021-11-03T00:16:27.965+08:00][default:at Object.<anonymous> (/Users/haha/project/viper-log/test.js:54:8)] _undef||traceid=||spanid=||pid=34187||localIp=||remote_addr=||iu||agent_url=111||agent_method=post||agent_data={"name":"hehe"}||agent_res={"name":"xixixixi"}||agent_ttl=11ms||agent_code=200||msg=haha
+
+````
 
 ## 安装 ##
 
@@ -38,15 +49,21 @@ logger.setOptions({
 
 app.use(
     logger.initLogKoa({
-        skip: ['/api/abc'], //支持配置某些url不打印日志
+        skipUrl: ['/api/abc'], //支持配置某些url不打印日志
         skipMethod: ['OPTIONS'], //支持配置某些method不打印日志
+        traceidKey: 'xxx', //支持配置请求header里的traceid字段，默认traceid
+        spanidKey: 'xxx', //支持配置请求header里的spanid字段，默认spanid
+        userNameKey: 'xxx', //支持配置ctx/ctx.session/ctx.headers的userName字段，默认username
     })
 )
 // express使用以下方法
 app.use(
     logger.initLogExpress({
-        skip: ['/api/abc'], //支持配置某些url不打印日志
+        skipUrl: ['/api/abc'], //支持配置某些url不打印日志
         skipMethod: ['OPTIONS'], //支持配置某些method不打印日志
+        traceidKey: 'xxx', //支持配置请求header里的traceid字段，默认traceid
+        spanidKey: 'xxx', //支持配置请求header里的spanid字段，默认spanid
+        userNameKey: 'xxx', //支持配置ctx/ctx.session/ctx.headers的userName字段，默认username
     })
 )
 
