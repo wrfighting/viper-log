@@ -37,11 +37,11 @@ logger.setOptions({
     pm2: false, // 如果采用pm2启动建议开启true，默认false
     compress: false, //是否压缩 默认false
     applog: {
-        fileName: path.join(__dirname, '../log/all.log'),
+        fileName: path.join(__dirname, '../log/all.log'), //默认logs/all.log
         daysToKeep: 3, //默认3
     },
     publiclog: {
-        fileName: path.join(__dirname, '../log/publiclog/publiclog.log'),
+        fileName: path.join(__dirname, '../log/publiclog/publiclog.log'), //默认logs/publiclog/publiclog.log
         daysToKeep: 48, //默认60
     },
     extraOptions: undefined, //支持覆盖所有默认配置，格式为log4js的配置格式，不建议使用，默认undefined
@@ -53,7 +53,7 @@ app.use(
         skipMethod: ['OPTIONS'], //支持配置某些method不打印日志
         traceidKey: 'xxx', //支持配置请求header里的traceid字段，默认traceid
         spanidKey: 'xxx', //支持配置请求header里的spanid字段，默认spanid
-        userNameKey: 'xxx', //支持配置ctx/ctx.session/ctx.headers的userName字段，默认username
+        userNameKey: 'xxx', //支持配置ctx/ctx.session/ctx.headers的userName字段(支持a.b.c这种写法)，默认username
     })
 )
 // express使用以下方法
