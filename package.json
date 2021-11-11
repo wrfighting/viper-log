@@ -1,6 +1,6 @@
 {
   "name": "viper-log",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "good server log for nodejs base on log4js",
   "keywords": [
     "node log",
@@ -13,7 +13,8 @@
     "/lib"
   ],
   "scripts": {
-    "lint": "eslint ./ --fix"
+    "lint": "eslint ./ --fix",
+    "test": "node test.js"
   },
   "author": "wrfighting",
   "license": "ISC",
