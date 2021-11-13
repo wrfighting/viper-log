@@ -1,6 +1,6 @@
 {
   "name": "viper-log",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "good server log for nodejs base on log4js",
   "keywords": [
     "node log",
